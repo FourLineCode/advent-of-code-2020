@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { performance } = require('perf_hooks')
 
 class Main {
 	constructor() {
@@ -59,7 +60,13 @@ class Main {
 }
 
 const main1 = new Main()
+const t0 = performance.now()
 console.log(`Part-1 : ${main1.part1() || '[ NOT YET CALCULATED ]'}`)
+const t1 = performance.now()
+console.log(`Part-1 execution time : ${(t1 - t0).toFixed(3)} milliseconds`)
 
 const main2 = new Main()
+const t2 = performance.now()
 console.log(`Part-2 : ${main2.part2() || '[ NOT YET CALCULATED ]'}`)
+const t3 = performance.now()
+console.log(`Part-2 execution time : ${(t3 - t2).toFixed(3)} milliseconds`)
