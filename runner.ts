@@ -10,8 +10,10 @@ async function main() {
 		throw new Error('Please provide the day of the solution!')
 	}
 
-	const { solution1, solution2 } = await import(`./2020/solutions/day-${day}.ts`)
-	const dayInput = fs.readFileSync(`./2020/inputs/${day}.txt`, 'utf8')
+	const year = new Date().getFullYear()
+
+	const { solution1, solution2 } = await import(`./${year}/solutions/day-${day}.ts`)
+	const dayInput = fs.readFileSync(`./${year}/inputs/${day}.txt`, 'utf8')
 
 	if (!solution1) {
 		console.warn('No solution 1 found. Make sure your module exports a "solution1" function.')
