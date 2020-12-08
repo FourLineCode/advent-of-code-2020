@@ -67,7 +67,7 @@ export function solution2(rawInput: string): number {
 	const rules: string[][] = []
 
 	input.forEach((rule) => {
-		let split = rule.split(' contain ')
+		const split = rule.split(' contain ')
 		const colors = split[1].split(', ')
 		split.pop()
 		split.push(...colors)
