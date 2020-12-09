@@ -4,7 +4,7 @@ function formatInput(rawInput: string) {
 
 function getCount(rules: string[][], looking: string): number {
 	let count = 0
-	let stack: string[] = []
+	const stack: string[] = []
 	rules.forEach((rule) => {
 		for (let i = 1; i < rule.length; i++) {
 			if (rule[i].includes(looking)) {
@@ -43,7 +43,7 @@ export function solution1(rawInput: string): number {
 
 function getTotal(rules: string[][], bag: string): number {
 	let count = 0
-	let stack: [string, number][] = []
+	const stack: [string, number][] = []
 	rules.forEach((rule) => {
 		if (rule[0].includes(bag)) {
 			for (let i = 1; i < rule.length; i++) {
