@@ -1,78 +1,78 @@
 function formatInput(rawInput: string) {
-	return rawInput.split('\r\n')
+	return rawInput.split('\n');
 }
 
 function getCount(rules: string[][], looking: string): number {
-	let count = 0
-	const stack: string[] = []
+	let count = 0;
+	const stack: string[] = [];
 	rules.forEach((rule) => {
 		for (let i = 1; i < rule.length; i++) {
 			if (rule[i].includes(looking)) {
-				count++
-				stack.push(rule[0])
-				rule.splice(1)
+				count++;
+				stack.push(rule[0]);
+				rule.splice(1);
 			}
 		}
-	})
+	});
 
 	stack.forEach((color) => {
-		count += getCount(rules, color.slice(0, -1))
-	})
+		count += getCount(rules, color.slice(0, -1));
+	});
 
-	return count
+	return count;
 }
 
 export function solution1(rawInput: string): number {
-	const input = formatInput(rawInput)
+	const input = formatInput(rawInput);
 
-	const rules: string[][] = []
+	const rules: string[][] = [];
 
 	input.forEach((rule) => {
-		const split = rule.split(' contain ')
-		const colors = split[1].split(', ')
-		split.pop()
-		split.push(...colors)
-		rules.push(split)
-	})
+		const split = rule.split(' contain ');
+		const colors = split[1].split(', ');
+		split.pop();
+		split.push(...colors);
+		rules.push(split);
+	});
 
 	return getCount(
 		rules.filter((rule) => !rule[1].includes('no other bags.')),
 		'shiny gold bag'
-	)
+	);
 }
 
 function getTotal(rules: string[][], bag: string): number {
-	let count = 0
-	const stack: [string, number][] = []
+	let count = 0;
+	const stack: [string, number][] = [];
 	rules.forEach((rule) => {
 		if (rule[0].includes(bag)) {
 			for (let i = 1; i < rule.length; i++) {
-				if (rule[i].includes('no other bags')) break
-				count += parseInt(rule[i][0])
-				stack.push([rule[i].substring(2, rule[i].length - 1), parseInt(rule[i][0])])
+				if (rule[i].includes('no other bags')) break;
+				count += parseInt(rule[i][0]);
+				stack.push([rule[i].substring(2, rule[i].length - 1), parseInt(rule[i][0])]);
 			}
 		}
-	})
+	});
 
 	stack.forEach((name) => {
-		count += name[1] * getTotal(rules, name[0])
-	})
+		count += name[1] * getTotal(rules, name[0]);
+	});
 
-	return count
+	return count;
 }
 
 export function solution2(rawInput: string): number {
-	const input = formatInput(rawInput)
+	const input = formatInput(rawInput);
 
-	const rules: string[][] = []
+	const rules: string[][] = [];
 
 	input.forEach((rule) => {
-		const split = rule.split(' contain ')
-		const colors = split[1].split(', ')
-		split.pop()
-		split.push(...colors)
-		rules.push(split)
-	})
+		const split = rule.split(' contain ');
+		const colors = split[1].split(', ');
+		split.pop();
+		split.push(...colors);
+		rules.push(split);
+	});
 
-	return getTotal(rules, 'shiny gold bag')
+	return getTotal(rules, 'shiny gold bag');
 }
