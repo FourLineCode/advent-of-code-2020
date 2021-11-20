@@ -1,4 +1,4 @@
-# Advent of Code Solutions
+# Advent of Code Solutions 2020
 
 My advent of code solutions + runner. (Credit - [Kesne](http://github.com/kesne))
 
