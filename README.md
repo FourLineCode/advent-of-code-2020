@@ -7,13 +7,13 @@ My advent of code solutions + runner. (Credit - [Kesne](http://github.com/kesne)
 **Running for a specific day:**
 
 ```bash
-pnpm start <day> <year>
+pnpm start <day>
 ```
 
 Or
 
 ```bash
-pnpm go <day> <year>
+pnpm go <day>
 ```
 
 > `year` is an optional parameter for current year

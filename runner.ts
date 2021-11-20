@@ -4,18 +4,14 @@ import fs from 'fs';
 console.log('\n');
 
 async function main() {
-	let [, , day, year] = process.argv;
+	let [, , day] = process.argv;
 
 	if (!day) {
 		throw new Error('Please provide the day of the solution!');
 	}
 
-	if (!year) {
-		year = String(new Date().getFullYear());
-	}
-
-	const { solution1, solution2 } = await import(`./${year}/solutions/${day}.ts`);
-	const dayInput = fs.readFileSync(`./${year}/inputs/${day}.txt`, 'utf8');
+	const { solution1, solution2 } = await import(`./solutions/${day}.ts`);
+	const dayInput = fs.readFileSync(`./inputs/${day}.txt`, 'utf8');
 
 	if (!solution1) {
 		console.warn('No solution 1 found. Make sure your module exports a "solution1" function.');
