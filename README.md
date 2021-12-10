@@ -7,13 +7,13 @@ My advent of code solutions + runner. (Credit - [Kesne](http://github.com/kesne)
 **Running for a specific day:**
 
 ```bash
-pnpm start <day>
+yarn start <day>
 ```
 
 Or
 
 ```bash
-pnpm go <day>
+yarn go <day>
 ```
 
 > `year` is an optional parameter for current year
@@ -32,12 +32,12 @@ function formatInput(rawInput: string) {
 export function solution1(rawInput: string) {
 	const input = formatInput(rawInput);
 
-	return 'TODO';
+	return "TODO";
 }
 
 export function solution2(rawInput: string) {
 	const input = formatInput(rawInput);
 
-	return 'TODO';
+	return "TODO";
 }
 ```
